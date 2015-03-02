@@ -16,7 +16,7 @@ $nav1["template.php"] = "Template";
 $nav1["order.php"] = "Order A Website";
 $nav1["contact.php"] = "Contact Us";
 $nav1["a7ec.php"] = "Recaptcha Form";
-$nav1["database1.php"] = "Database 1";
+$nav1["beers.php"] = "Beers";
 
 
 //echo THIS_PAGE;
