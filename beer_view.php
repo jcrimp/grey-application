@@ -54,34 +54,40 @@ if($foundRecord)
 
 include 'include/header.php'; #header must appear before any HTML is printed by PHP
 ?>
-<h3 align="center"><?=THIS_PAGE;?></h3>
+<h3 align="center">Beer View</h3>
 
 
 <?php
 if($foundRecord)
 {#records exist - show beer!
 ?>
-	<h3 align="center"><?=$Beer;?></h3>
-	<div align="center"><a href="beer_list.php">Back to the list of beers</a></div>
+	<h3 align="center" style="text-shadow:none;"><?=$Beer;?></h3>
+	
 	<table align="center">
 		<tr>
-			<td><img src="upload/b<?=$myID;?>.jpg" /></td>
+			<td rowspan="6"><img src="upload/b<?=$myID;?>.jpg" /></td>
 			<td><?=$Beer;?></td>
 		</tr>
 		<tr>
-			<td><?=$Style;?></td>
-			<td><?=$Brewer;?></td>
+			<td>Style: <?=$Style;?></td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td>Brewer: <?=$Brewer;?></td>
+		</tr>
+		<tr>
+			<td>
+				Description: <br />
 				<blockquote><?=$Description;?></blockquote>
 			</td>
 		</tr>
 		<tr>
-			<td><?=$AlcoholContent;?></td>
-			<td><?=$Calories;?></td>
+			<td>Alcohol Content: <?=$AlcoholContent;?></td>
+		</tr>
+		<tr>
+			<td>Calories: <?=$Calories;?></td>
 		</tr>
 	</table>
+	<div align="center"><a href="beer_list.php">Back to the list of beers</a></div>
 <?php
 }else{//no such beer!
     echo '<div align="center">What! No such beer? There must be a mistake!!</div>';

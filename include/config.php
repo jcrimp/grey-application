@@ -23,7 +23,7 @@ $nav1["template.php"] = "Template";
 $nav1["order.php"] = "Order A Website";
 $nav1["contact.php"] = "Contact Us";
 $nav1["a7ec.php"] = "Recaptcha Form";
-$nav1["beers.php"] = "Beers";
+$nav1["beer_list.php"] = "Beer List";
 
 
 //echo THIS_PAGE;
@@ -58,6 +58,12 @@ switch(THIS_PAGE)
 		$title = "My Contact Page";
 		$banner = "Contact Page Banner";
 		$slogan = "Contact Page Slogan";
+		break;
+		
+	case "beer_list.php":
+		$title = "Beer List";
+		$banner = "Beer List";
+		$slogan = "Look at all these beers!";
 		break;
 	
 	default:

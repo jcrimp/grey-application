@@ -26,11 +26,9 @@ $title = 'So many beers!';
 
 include 'include/header.php'; #header must appear before any HTML is printed by PHP
 ?>
-<h3 align="center"><?=THIS_PAGE;?></h3>
-
-<p>This page, along with <b>demo_view.php</b>, demonstrate a List/View web application.</p>
-<p>This page is the entry point of the application, meaning this page gets a link on your web site.  Since the current subject is muffins, we could name the link something clever like <a href="demo_list.php">MUFFINS</a></p>
-<p>Use <b>demo_list.php</b> and <b>demo_view.php</b> as a starting point for building your own List/View web application!</p> 
+<h3 align="center">Beer List</h3>
+<table>
+ 
 <?php
 
 # connection comes first in mysqli (improved) function
@@ -41,13 +39,23 @@ if(mysqli_num_rows($result) > 0)
 {#records exist - process
 	while($row = mysqli_fetch_assoc($result))
 	{# process each row
-         echo '<div><a href="beer_view.php?id=' . (int)$row['BeerID'] . '">' . dbOut($row['Beer']) . '</a>';
-         echo ' - ' . dbOut($row['Style'])  . ' from ' . dbOUt($row['Brewer']) . '</div>';
+         echo '<tr>';
+         echo '<td rowspan="3" style="text-align:center; background-color:white;"><a href="beer_view.php?id=' . (int)$row['BeerID'] . '">' . '<img src="upload/b' . (int)$row['BeerID'] . '.jpg" /></a></td>';
+         echo '<td><a href="beer_view.php?id=' . (int)$row['BeerID'] . '"><h4 style="text-shadow:none;">' . (int)$row['BeerID'] . '. ' . dbOut($row['Beer']) . '</h4></a></td>';
+         echo '</tr>';
+         echo '<tr>';
+         echo '<td>Style: ' . dbOut($row['Style'])  . '</td>';
+         echo '</tr>';
+         echo '<tr>';
+         echo '<td>Brewer: ' . dbOUt($row['Brewer']) . '</td></tr>';
  
 	} 
 }else{#no records
     echo "<div align=center>What! No beers?  There must be a mistake!!</div>";	
 }
+?>
+</table>
+<?php
 @mysqli_free_result($result);
 
 include 'include/footer.php';
