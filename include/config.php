@@ -6,10 +6,16 @@
 */
 
 include 'credentials.php';
+include 'common.php';
 
 define('DEBUG',TRUE); #we want to see all errors
 
 date_default_timezone_set('America/Los_Angeles'); #sets default date/timezone for this website
+
+/* automatic path settings - use the following 4 path settings for placing all code in one application folder */ 
+define('VIRTUAL_PATH', 'http://madebyjennycrimp.com/itc240/grey/'); # Virtual (web) 'root' of application for images, JS & CSS files
+define('PHYSICAL_PATH', '/home/jencri3/madebyjennycrimp.com/itc240/grey/'); # Physical (PHP) 'root' of application for file & upload reference
+define('INCLUDE_PATH', PHYSICAL_PATH . 'include/'); # Path to PHP include files - INSIDE APPLICATION ROOT
 
 # End Config area --------------------------------
 ob_start();  #buffers our page to be prevent header errors. Call before INC files or ANY html!
